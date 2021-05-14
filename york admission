@@ -1,0 +1,146 @@
+<!DOCTYPE html> 
+<html> 
+<head>  <title> York Admission</title> 
+
+<script> 
+// Do not use let keyword to initialize a javascript variable. Instead use var. Function show_value() 
+
+function display() 
+{ 
+    var a=document.getElementById("deptname");
+    var b=a.options[a.selectedIndex].value;
+    var admissionFee=30000;
+    var h,t;
+    var f=0;
+    
+    if(document.getElementById("yes").checked)
+    {
+        h=75000;
+    }
+    if(document.getElementById("no").checked)
+    {
+        h=0;
+    }
+    if(b=="EEE" || b=="CSE" || b=="IT")
+    {
+        t=45000;
+
+    }
+    if(b=="ECE" || b=="MECH" || b=="CIVIL")
+    {
+        t=50000;
+    }
+    if(document.getElementById("firstGraduate").checked)
+    {
+       f=-20000;
+    }
+    var totalCollegeFee=(admissionFee+t+h+f);
+    var result=document.getElementById("result");
+    var sname = document.getElementById('sname').value;
+    result.innerHTML="HI " +sname+","+"<br>"+"Your Admission Fee is Rs."+admissionFee+"<br>"+"Tuition Fee is Rs."+t+"<br>"+"Hostel Fee is Rs."+h+"<br>"+"Total College Fee is Rs."+totalCollegeFee;
+    return false;
+    // &nbsp;
+
+}
+
+
+
+</script> 
+<style> 
+
+body { 
+ background-size: 70%; 
+Font-weight: bold; 
+Background-position: center; 
+Background-repeat: no-repeat; } 
+div 
+{ 
+Font-size: 20px; 
+Color: #FFFFFF; 
+Margin-right: auto; 
+Margin-left: auto; 
+Text-align: center;
+} 
+h3{ 
+text-align: center; 
+Color: #FFFFFF; 
+Background-color: #00CCFF; Font-family: Verdana; Padding: 5px; 
+border-radius: 6px; 
+} 
+table, td, tr 
+{ 
+Text-align: center; 
+Color: #009900; 
+Margin-right: auto; 
+Margin-left: auto;
+Background-color: #F2F2F2; 
+Padding: 1px; 
+} 
+#submit{ 
+Color: #FFFFFF; 
+Background-color: #00CCFF; Margin-left: auto; 
+Margin-right: auto; 
+Padding: 5px; 
+Width: 50%; 
+Font-family: Verdana; Font-weight: bold; 
+Border-radius: 6px; 
+text-align: center;
+} 
+#result{ 
+Color: #00CC66; 
+Background-color: #FFFFFF ;
+Margin-right: auto; 
+Margin-left: auto;
+Padding: 5px; 
+} 
+
+</style> 
+</head> 
+<body> 
+<div style="background-image: url(‘YorkAdmission.png’);"> 
+<h3>York Admission</h3> 
+<form onsubmit="return display()" > 
+<table border="5" width="100" > 
+<tr> 
+<td>Student Name</td> 
+<td><input type="text" id="sname" placeholder="Enter the student name" ></td> </tr> 
+<tr> 
+<td>Phone Number</td> 
+<td><input type="number" id="phno" placeholder="Enter the Phone number"> </td> </tr>
+<tr> 
+<td>Admission Id</td> 
+<td><input type="text" id="aid" placeholder="Enter your admission id"></td> 
+</tr> 
+<tr> 
+<td>Date of Admission</td> 
+<td><input type="date" id="admissiondate" required ></td> </tr> 
+<tr> 
+<td>Department Name</td> 
+<td> 
+<select name= "Department Name" id="deptname"> 
+<option value="EEE">Select Department</option> 
+<option value="EEE">EEE</option> 
+<option value="ECE">ECE</option> 
+<option value= "CSE">CSE</option> 
+<option value= "MECH">MECH</option> 
+<option value= "CIVIL">CIVIL</option> 
+<option value= "IT">IT</option> 
+</select> 
+</td> 
+</tr> 
+<tr> 
+<td>Prefer College Hostel</td> 
+<td><input type="radio" id="yes" name="Prefer College Hostel">Yes
+    <input type="radio" id="no" name="Prefer College Hostel">No
+</td> 
+</tr> 
+<tr> 
+<td>First Graduate</td> 
+<td><input type="checkbox" id="firstGraduate" name="First Graduate" >Click if you are the first graduate</td> </tr> 
+</table> 
+<p><button id="submit" onclick="display()">CONFIRM ADMISSION</button></p> 
+<div id="result"> </div> 
+</form> 
+
+</body> 
+</html>
